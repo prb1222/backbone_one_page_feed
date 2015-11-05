@@ -1,7 +1,8 @@
 FlickrFeed.Views.PostsIndex = Backbone.View.extend({
-  template: _.template($('#feed-item-template').html()),
+  template: _.template($('#index-template').html()),
 
   initialize: function () {
+    debugger;
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addPostItem);
   },
