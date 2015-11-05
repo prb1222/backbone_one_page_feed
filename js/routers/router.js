@@ -8,7 +8,9 @@ FlickrFeed.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    var view = new FlickrFeed.Views.PostsIndex();
+    var postsCollection = new FlickrFeed.Collections.Posts();
+    postsCollection.fetch();
+    var view = new FlickrFeed.Views.PostsIndex({collection: postsCollection});
     this.swapView(view)
   },
 

@@ -1,5 +1,5 @@
 FlickrFeed.Models.Post = Backbone.Model.extend({
-  url: "https://www.flickr.com/photos/feeds",
+  collection: FlickrFeed.Collections.Posts,
 
   parse: function (response) {
     debugger;
