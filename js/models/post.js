@@ -39,7 +39,8 @@ FlickrFeed.Models.Post = Backbone.Model.extend({
     }
 
     if (response.description) {
-      parsed_response.description = response.description;
+      var strArray = response.description.split("</p> ");
+      parsed_response.description = strArray[strArray.length - 1];
     }
 
     return parsed_response;
