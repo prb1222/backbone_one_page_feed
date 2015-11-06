@@ -14,6 +14,7 @@ FlickrFeed.Models.Post = Backbone.Model.extend({
 
     if (response.published) {
       parsed_response.published = moment(response.published).format("Do MMM YYYY [at] h[:]mm A");
+      parsed_response.rawDate = response.published;
     }
 
     if (response.tags) {

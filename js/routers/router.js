@@ -5,12 +5,13 @@ FlickrFeed.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
+    "posts/:id": "postShow"
   },
 
   index: function () {
-    var postsCollection = new FlickrFeed.Collections.Posts();
-    postsCollection.fetch();
-    var view = new FlickrFeed.Views.PostsIndex({collection: postsCollection});
+    this.postsCollection = this.postsCollection || new FlickrFeed.Collections.Posts();
+    if (!this.postsCollection.length) {this.postsCollection.fetch();}
+    var view = new FlickrFeed.Views.PostsIndex({collection: this.postsCollection});
     this.swapView(view)
   },
 
@@ -19,5 +20,16 @@ FlickrFeed.Routers.Router = Backbone.Router.extend({
     this._view = view;
     this.$rootEl.html(view.$el);
     view.render();
+  },
+
+  postShow: function(id) {
+    var parsedId = this.parseId(id);
+    var author_id = parsedId[0];
+    var rawDate = parsedId[1];
+    debugger;
+  }
+
+  parseId: function(id) {
+    return id.split("_");
   }
 })

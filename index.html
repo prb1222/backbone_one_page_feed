@@ -11,11 +11,11 @@
   <script type="text/template" id="feed-item-template">
     <div class="index-item-container">
       <div class="index-item-image">
-        <img src="<%= post.get('image_url') %>" alt="" />
+        <a href="#posts/<%= post.get('author_id') + '_' + post.get('rawDate') %>"><img src="<%= post.get('image_url') %>" alt="" /></a>
       </div>
       <div class="index-item-content">
         <div class="index-item-title">
-          <span class="title-span">Content</span>
+          <a href="#posts/<%= post.get('author_id') + '_' + post.get('rawDate') %>"><span class="title-span">Content</span></a>
         </div>
         <div class="index-item-info-bar">
           <div class="author-name">

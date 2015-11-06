@@ -1,5 +1,5 @@
 FlickrFeed.Views.PostShow = Backbone.View.extend({
-  template: _.template($('#index-template').html()),
+  template: _.template($('#post-show-template').html()),
 
   className: 'post-show-view',
 
