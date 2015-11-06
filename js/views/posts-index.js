@@ -3,10 +3,14 @@ FlickrFeed.Views.PostsIndex = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "add", this.addPostItem);
+    $(window).on("resize",this.render.bind(this));
   },
 
   render: function () {
     this.$el.html(this.template());
+    this.collection.each(function(post){
+      this.addPostItem(post);
+    }.bind(this));
     return this;
   },
 
@@ -30,5 +34,11 @@ FlickrFeed.Views.PostsIndex = Backbone.View.extend({
       title = title.slice(0, title.length - 3) + "...";
     }
     view.$el.find('span.title-span').text(title);
+  },
+
+  remove: function() {
+    $(window).off("resize",this.resizeList);
+    //call the superclass remove method to ensure event handler is unbound
+    Backbone.View.prototype.remove.apply(this, arguments);
   }
 });
