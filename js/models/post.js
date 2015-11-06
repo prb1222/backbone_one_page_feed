@@ -13,7 +13,7 @@ FlickrFeed.Models.Post = Backbone.Model.extend({
     }
 
     if (response.published) {
-      parsed_response.published = response.published;
+      parsed_response.published = moment(response.published).format("Do MMM YYYY [at] h[:]mm A");
     }
 
     if (response.tags) {
@@ -21,7 +21,8 @@ FlickrFeed.Models.Post = Backbone.Model.extend({
     }
 
     if (response.author) {
-      parsed_response.author = response.author;
+      var authorRegex = /\(.+\)/;
+      parsed_response.author = authorRegex.exec(response.author)[0].replace(/\(|\)/g, "");
     }
 
     if (response.author_id) {

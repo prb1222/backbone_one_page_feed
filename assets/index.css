@@ -1,0 +1,49 @@
+ul.index-feed {
+  list-style: none;
+  padding: 0px;
+}
+
+* {
+    font-family: verdana;
+}
+
+.index-item-container {
+  /* height: 160px; */
+  border: 1px solid black;
+}
+
+.index-item-image img, .index-item-image {
+  height: 160px;
+  width: 257px;
+  /* display: inline-block; */
+}
+
+.index-item-content {
+  height: 160px;
+    /* margin-bottom: 20px; */
+  width: calc(100% - 310px);
+}
+
+.index-item-image, .index-item-content {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.index-item-info-bar > * {
+  display: inline-block;
+}
+
+.index-item-title {
+    padding-top: 10px;
+    height: 60%;
+    font-size: 35px;
+    color: rgb(30,144,255);
+}
+
+.index-item-info-bar {
+    height: calc(40% - 10px);
+}
+
+.author-name, .published-date {
+  padding-right: 20px;
+}

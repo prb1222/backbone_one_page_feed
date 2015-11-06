@@ -19,13 +19,13 @@
         </div>
         <div class="index-item-info-bar">
           <div class="author-name">
-            <%= post.get('author') %>
+            <a href="https://www.flickr.com/photos/<%= post.get('author_id')%>"><%= post.get('author') %></a>
           </div>
           <div class="published-date">
             <%= post.get('published') %>
           </div>
           <div class="view-on-flickr">
-            <%= post.get('link') %>
+            <a href="<%= post.get('link') %>">View on Flickr</a>
           </div>
         </div>
       </div>
@@ -42,6 +42,7 @@
   <script src="js/lib/jquery-2.1.4.min.js"></script>
   <script src="js/lib/underscore-min.js"></script>
   <script src="js/lib/backbone-min.js"></script>
+  <script src="js/lib/moment.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/models/post.js"></script>
   <script src="js/collections/posts.js"></script>
