@@ -7,17 +7,30 @@ FlickrFeed.Views.PostsIndex = Backbone.View.extend({
   },
 
   render: function () {
+    var doc = document.documentElement;
+    var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
     this.$el.html(this.template());
     this.collection.each(function(post){
       this.addPostItem(post);
     }.bind(this));
+    $(window).scrollTop(top);
     return this;
   },
 
   addPostItem: function (post) {
     var postItemView = new FlickrFeed.Views.PostItem({model: post});
     $('ul.index-feed').append(postItemView.render().$el);
+    this.moveDate(postItemView);
     this.resizeTitle(postItemView);
+  },
+
+  moveDate: function (view) {
+    var $date = view.$el.find('.published-date').detach();
+    if ($(window).width() < 800) {
+      view.$el.find('.index-item-title').after($date);
+    } else {
+      view.$el.find('.author-name').after($date);
+    }
   },
 
   resizeTitle: function (view) {
@@ -25,7 +38,7 @@ FlickrFeed.Views.PostsIndex = Backbone.View.extend({
     var $content = view.$el.find('.index-item-content');
     var title = $hidden.text();
     var truncate = false
-    while ($hidden.width() > $content.width()) {
+    while ($hidden.width() > $content.width() && title.length > 4) {
       var truncate = true;
       var title = $hidden.text().slice(0, title.length - 1);
       $hidden.text(title);

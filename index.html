@@ -35,6 +35,37 @@
     </div>
   </script>
 
+  <script type="text/template" id="post-show-template">
+    <div class="post-show-container">
+      <div class="post-show-header">
+        <div class="post-title">
+          <%= post.get('title') %>
+        </div>
+        <div class="sub-header-info">
+          <div class="author-name">
+            <a href="https://www.flickr.com/photos/<%= post.get('author_id')%>"><%= post.get('author') %></a>
+          </div>
+          <div class="published-date">
+            | <%= post.get('published') %>
+          </div>
+        </div>
+      </div>
+      <div class="post-show-content">
+        <div class="post-show-image">
+
+        </div>
+        <div class="post-show-text-container">
+          <div class="post-show-description">
+            <%= post.get('description') %>
+          </div>
+          <div class="post-show-tags">
+            Tags: <%= post.get('tags') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
   <script type="text/template" id="index-template">
     <div class="index-container">
       <h3>Flickr Public Feed</h3>
