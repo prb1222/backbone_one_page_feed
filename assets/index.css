@@ -7,6 +7,12 @@ ul.index-feed {
 * {
     font-family: verdana;
 }
+.index-container {
+  height: 640px;
+  overflow-y: scroll;
+  position: relative;
+  border: 1px solid black;
+}
 
 .index-item-title > a {
     color: rgb(30,144,255);
@@ -83,10 +89,6 @@ h3 {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 640px;
-  overflow-y: scroll;
-  border: 1px solid black;
-  position: relative;
 }
 
 .sub-header-info > * {
@@ -125,6 +127,8 @@ h3 {
 .post-show-container {
     margin-left: 10px;
     margin-top: 5px;
+    border: 1px solid black;
+    padding: 10px;
 }
 
 .post-show-image {

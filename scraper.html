@@ -67,7 +67,7 @@
             <%= post.get('description') %>
           </div>
           <div class="post-show-tags">
-            Tags: <%= post.get('tags') %>
+            Tags: <%= post.parseTags() %>
           </div>
         </div>
       </div>
