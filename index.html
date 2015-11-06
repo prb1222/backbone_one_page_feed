@@ -52,7 +52,7 @@
       </div>
       <div class="post-show-content">
         <div class="post-show-image">
-
+          <img src="<%= post.get('image_url') %>" alt="" />
         </div>
         <div class="post-show-text-container">
           <div class="post-show-description">
@@ -68,7 +68,6 @@
 
   <script type="text/template" id="index-template">
     <div class="index-container">
-      <h3>Flickr Public Feed</h3>
       <ul class="index-feed"></ul>
     </div>
   </script>
@@ -82,8 +81,10 @@
   <script src="js/collections/posts.js"></script>
   <script src="js/views/posts-index.js"></script>
   <script src="js/views/post-item.js"></script>
+  <script src="js/views/post-show.js"></script>
   <script src="js/routers/router.js"></script>
 
+  <h3>Flickr Public Feed</h3>
   <div id="content"></div>
   <script type="text/javascript">
     $(document).ready(function(){

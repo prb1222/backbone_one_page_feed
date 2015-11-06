@@ -9,7 +9,6 @@ FlickrFeed.Collections.Posts = Backbone.Collection.extend({
     return Backbone.sync(method, collection, options);
   },
 
-
   parse: function (response) {
     return response.items;
   }

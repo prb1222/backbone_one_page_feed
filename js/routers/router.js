@@ -12,7 +12,7 @@ FlickrFeed.Routers.Router = Backbone.Router.extend({
     this.postsCollection = this.postsCollection || new FlickrFeed.Collections.Posts();
     if (!this.postsCollection.length) {this.postsCollection.fetch();}
     var view = new FlickrFeed.Views.PostsIndex({collection: this.postsCollection});
-    this.swapView(view)
+    this.swapView(view);
   },
 
   swapView: function(view) {
@@ -26,8 +26,10 @@ FlickrFeed.Routers.Router = Backbone.Router.extend({
     var parsedId = this.parseId(id);
     var author_id = parsedId[0];
     var rawDate = parsedId[1];
-    debugger;
-  }
+    var post = this.postsCollection.get(author_id + '_' + rawDate);
+    var view = new FlickrFeed.Views.PostShow({model: post});
+    this.swapView(view);
+  },
 
   parseId: function(id) {
     return id.split("_");

@@ -34,6 +34,14 @@ FlickrFeed.Models.Post = Backbone.Model.extend({
       parsed_response.image_url = response.media.m;
     }
 
+    if (response.author_id && response.published) {
+      parsed_response.id = response.author_id + '_' + response.published;
+    }
+
+    if (response.description) {
+      parsed_response.description = response.description;
+    }
+
     return parsed_response;
   }
 });
