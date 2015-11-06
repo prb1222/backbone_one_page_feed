@@ -1,6 +1,7 @@
 ul.index-feed {
   list-style: none;
   padding: 0px;
+  margin: 0px;
 }
 
 * {
@@ -85,6 +86,7 @@ h3 {
   height: 640px;
   overflow-y: scroll;
   border: 1px solid black;
+  position: relative;
 }
 
 html {
