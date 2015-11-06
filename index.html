@@ -15,7 +15,7 @@
       </div>
       <div class="index-item-content">
         <div class="index-item-title">
-          <%= post.get('title') %>
+          <span class="title-span">Content</span>
         </div>
         <div class="index-item-info-bar">
           <div class="author-name">
@@ -28,6 +28,9 @@
             <a href="<%= post.get('link') %>">View on Flickr</a>
           </div>
         </div>
+      </div>
+      <div class="hidden">
+        <%= post.get('title') %>
       </div>
     </div>
   </script>
