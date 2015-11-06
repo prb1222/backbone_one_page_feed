@@ -2,6 +2,36 @@ FlickrFeed.Models.Post = Backbone.Model.extend({
   collection: FlickrFeed.Collections.Posts,
 
   parse: function (response) {
-    debugger;
+    var parsed_response = {};
+
+    if (response.title) {
+      parsed_response.title = response.title;
+    }
+
+    if (response.link) {
+      parsed_response.link = response.link;
+    }
+
+    if (response.published) {
+      parsed_response.published = response.published;
+    }
+
+    if (response.tags) {
+      parsed_response.tags = response.tags;
+    }
+
+    if (response.author) {
+      parsed_response.author = response.author;
+    }
+
+    if (response.author_id) {
+      parsed_response.author_id = response.author_id;
+    }
+
+    if (response.media) {
+      parsed_response.image_url = response.media.m;
+    }
+
+    return parsed_response;
   }
 });

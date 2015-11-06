@@ -11,23 +11,21 @@
   <script type="text/template" id="feed-item-template">
     <div class="index-item-container">
       <div class="index-item-image">
-        <p>
-          Image will go here
-        </p>
+        <img src="<%= post.get('image_url') %>" alt="" />
       </div>
       <div class="index-item-content">
         <div class="index-item-title">
-          Title will go here
+          <%= post.get('title') %>
         </div>
         <div class="index-item-info-bar">
           <div class="author-name">
-            Author name
+            <%= post.get('author') %>
           </div>
           <div class="published-date">
-            Published whenevs
+            <%= post.get('published') %>
           </div>
           <div class="view-on-flickr">
-            View on flickr
+            <%= post.get('link') %>
           </div>
         </div>
       </div>
