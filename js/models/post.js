@@ -1,6 +1,9 @@
 FlickrFeed.Models.Post = Backbone.Model.extend({
   collection: FlickrFeed.Collections.Posts,
 
+  defaults: {},
+
+
   parse: function (response) {
     var parsed_response = {};
 
