@@ -3,6 +3,8 @@ FlickrFeed.Views.PostsIndex = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "add", this.addPostItem);
+    this.$searchBar = $('form.post-form-fields');
+    this.$searchBar.on('submit', this.search.bind(this));
     $(window).on("resize",this.render.bind(this));
   },
 
@@ -19,6 +21,11 @@ FlickrFeed.Views.PostsIndex = Backbone.View.extend({
     $('ul.index-feed').append(postItemView.render().$el);
     this.moveDate(postItemView);
     this.resizeTitle(postItemView);
+  },
+
+  search: function (event) {
+    event.preventDefault();
+    alert("Hello!")
   },
 
   moveDate: function (view) {
